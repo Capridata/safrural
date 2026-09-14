@@ -180,7 +180,7 @@ function calcInvestimentos(){
 
 function calcCapitalGiro(custoAno1Total){
   if(state.capitalGiro.modo==='manual') return num(state.capitalGiro.valorManual);
-  return (custoAno1Total/12) * num(state.premissas.mesesGiro||3);
+  return (custoAno1Total/12) * num(state.premissas.mesesGiro);
 }
 
 function calcCustosPorAno(){
@@ -1244,7 +1244,7 @@ function handleClick(e){
   } else if(action==='del-inv'){
     state.investimentos = state.investimentos.filter(x=>x.id!==id);
   } else if(action==='add-fin'){
-    state.financiamentos.push({id:uid('fin'),descricao:'',saldoDevedor:0,percJuros:25,parcelas:{1:0,2:0,3:0,4:0,5:0}});
+    state.financiamentos.push({id:uid('fin'),descricao:'',saldoDevedor:0,percJuros:25,parcelas:{1:0,2:0,3:0,4:0,5:0},prazoAnos:'5',carenciaAnos:'0',bonusAdimplencia:0});
   } else if(action==='del-fin'){
     state.financiamentos = state.financiamentos.filter(x=>x.id!==id);
   } else if(action==='add-cst'){
